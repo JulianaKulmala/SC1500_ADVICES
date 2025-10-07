@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+LOGFILE="Juliana.Kulmala.advices"
+
+DATETIME=$(date '+%Y-%m-%d %H:%M:%S')
+
+ADVICE=$(curl -s https://api.adviceslip.com/advice | jq -r '.slip.advice')
+
+echo "[$DATETIME] $ADVICE" >> "$LOGFILE"
+
